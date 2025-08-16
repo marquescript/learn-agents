@@ -32,6 +32,6 @@ export default async function callLLM(prompt: string): Promise<string> {
     return response;
 }
 
-callLLM("Qual a capital do Brasil ?")
-    .then(response => console.log(`Resposta: ${response}`))
-    .catch(error => console.error(`Erro: ${error}`));
+// callLLM("Qual a capital do Brasil ?")
+//     .then(response => console.log(`Resposta: ${response}`))
+//     .catch(error => console.error(`Erro: ${error}`));
