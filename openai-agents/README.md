@@ -84,3 +84,36 @@ Esta função demonstra como manter o estado de uma conversa, permitindo que o a
     *   A segunda pergunta é feita: "E qual o estado dessa cidade?". Como o histórico da primeira pergunta e resposta foi mantido e reenviado, o agente entende que "essa cidade" se refere a São Francisco e responde corretamente.
 
 Este exemplo ilustra como construir conversas contínuas e com memória, que são a base para qualquer chatbot ou assistente virtual.
+
+---
+
+### 3. `src/agent-exception.ts`
+
+Este arquivo explora como lidar com erros e implementar mecanismos de fallback robustos ao trabalhar com o framework `@openai/agents`. É crucial para construir sistemas de IA resilientes que possam se recuperar de falhas inesperadas ou limitações.
+
+**O que o código faz?**
+
+O script ilustra cenários onde um agente pode encontrar erros (por exemplo, uma ferramenta que falha, um modelo que retorna uma resposta inválida, ou um limite de uso excedido) e como o sistema pode ser configurado para reagir a essas falhas de forma controlada, em vez de simplesmente travar.
+
+**Conceitos Abordados:**
+
+1.  **Tratamento de Erros em Ferramentas (`Tools`):**
+    *   Como as ferramentas podem sinalizar falhas e como o agente pode capturar e reagir a essas exceções.
+    *   Implementação de lógica de `try-catch` dentro das ferramentas ou na sua execução.
+
+2.  **Mecanismos de Fallback:**
+    *   Definição de um comportamento alternativo (fallback) quando a execução principal de um agente falha. Isso pode incluir:
+        *   Redirecionar a requisição para um agente mais genérico.
+        *   Fornecer uma resposta padrão ou uma mensagem de erro amigável ao usuário.
+        *   Tentar uma abordagem diferente para a mesma tarefa.
+
+3.  **Estratégias de Resiliência:**
+    *   Discussão sobre como projetar agentes para serem mais tolerantes a falhas, minimizando o impacto de problemas isolados.
+
+**Exemplos de Cenários:**
+
+*   Uma ferramenta de busca de dados que falha ao conectar a um serviço externo.
+*   Um modelo de linguagem que retorna um erro de validação ou excede um limite de tokens.
+*   Um agente que não consegue encontrar uma resposta adequada e precisa de um "plano B".
+
+Este exemplo é fundamental para garantir a estabilidade e a confiabilidade de aplicações construídas com `@openai/agents`, permitindo que elas continuem operando mesmo diante de condições adversas.
